@@ -1,14 +1,14 @@
-<!-- CADENCE — white-label. No personal or company identifiers in this file by design. -->
+<!-- Megacycle — white-label. No personal or company identifiers in this file by design. -->
 
 <p align="center">
-  <img src="assets/hero.svg" alt="CADENCE" width="100%">
+  <img src="assets/hero.svg" alt="Megacycle" width="100%">
 </p>
 
-<h1 align="center">🔁 CADENCE</h1>
+<h1 align="center">🔁 Megacycle</h1>
 
 <p align="center">
   <b>Point it at your project and it runs a fleet of cheap health scanners in parallel, predicts what to build next, and grows its own checklist over time.</b><br>
-  <sub>CADENCE is a continuous self-improvement engine for a codebase. Each round it runs a fleet of tiny, $0, local scanners in parallel — test coverage, doc freshness, dependency drift, TODO/FIXME debt, untested files — each of which reads real on-disk state and PREDICTS the highest-leverage builds to do next. Predictions merge into a ranked, deduplicated backlog; anything that keeps recurring is PROMOTED into a new standing scanner, so the checklist grows itself. Scanners are just objects with scan() and predict(); bring your own, and plug in any LLM to enrich predictions. Runs once, N rounds, or forever.</sub>
+  <sub>Megacycle is a continuous self-improvement engine for a codebase. Each round it runs a fleet of tiny, $0, local scanners in parallel — test coverage, doc freshness, dependency drift, TODO/FIXME debt, untested files — each of which reads real on-disk state and PREDICTS the highest-leverage builds to do next. Predictions merge into a ranked, deduplicated backlog; anything that keeps recurring is PROMOTED into a new standing scanner, so the checklist grows itself. Scanners are just objects with scan() and predict(); bring your own, and plug in any LLM to enrich predictions. Runs once, N rounds, or forever.</sub>
 </p>
 
 <p align="center">
@@ -23,9 +23,9 @@
 
 ---
 
-## Why CADENCE
+## Why Megacycle
 
-Most 'improve the codebase' work is reactive and forgettable. CADENCE makes it a standing loop. A cycle is one self-contained improvement scanner bound to a real signal — it reads true state (are there tests? is the README stale? are deps behind?) and proposes concrete future builds ranked by leverage. A super-loop runs the whole fleet in a bounded parallel pool, merges every prediction into a backlog keyed by build, and bumps a seen-count on repeats. When a prediction recurs past a threshold, it's minted into a new dynamic cycle — the registry literally grows itself toward the work that keeps mattering. It's cheap and offline by default (file reads only); wire in an LLM enricher and it proposes builds you didn't think of. Point it at any repo and let it compound.
+Most 'improve the codebase' work is reactive and forgettable. Megacycle makes it a standing loop. A cycle is one self-contained improvement scanner bound to a real signal — it reads true state (are there tests? is the README stale? are deps behind?) and proposes concrete future builds ranked by leverage. A super-loop runs the whole fleet in a bounded parallel pool, merges every prediction into a backlog keyed by build, and bumps a seen-count on repeats. When a prediction recurs past a threshold, it's minted into a new dynamic cycle — the registry literally grows itself toward the work that keeps mattering. It's cheap and offline by default (file reads only); wire in an LLM enricher and it proposes builds you didn't think of. Point it at any repo and let it compound.
 
 ---
 
@@ -62,16 +62,16 @@ flowchart LR
 
 ```bash
 # 1. no install needed — pure Node builtins
-node lib/cadence.cjs --dir=.                 # one round against the current project ($0, local)
+node lib/megacycle.cjs --dir=.                 # one round against the current project ($0, local)
 
 # 2. compound over several rounds (backlog + registry may grow)
-node lib/cadence.cjs --dir=. --rounds=3
+node lib/megacycle.cjs --dir=. --rounds=3
 
 # 3. see the ranked backlog it built
 node examples/demo.cjs
 
 # 4. run forever on an interval (great as a cron / service)
-node lib/cadence.cjs --dir=. --loop --interval=900
+node lib/megacycle.cjs --dir=. --loop --interval=900
 ```
 
 > State (backlog + minted dynamic cycles) persists to ./data as JSONL/JSON, gitignored and auto-created. Scans are local file reads — $0 and offline. Pass your own cycles to runRound(), or an `enrich` function to have any LLM propose extra builds. Every stage is fail-open: a broken cycle degrades, the round never crashes.
@@ -81,9 +81,9 @@ node lib/cadence.cjs --dir=. --loop --interval=900
 ## Repository layout
 
 ```
-cadence/
+megacycle/
 ├── lib/
-│   ├── cadence.cjs         ← the super-loop: parallel scan → predict → backlog → promote
+│   ├── megacycle.cjs         ← the super-loop: parallel scan → predict → backlog → promote
 │   └── cycles.cjs          ← generic example cycles (tests / docs / deps / TODO-debt / untested files)
 ├── examples/
 │   └── demo.cjs            ← run a round against this repo, print the ranked backlog
@@ -101,4 +101,4 @@ cadence/
 
 ---
 
-<p align="center"><sub>CADENCE · scan · predict · promote · MIT</sub></p>
+<p align="center"><sub>Megacycle · scan · predict · promote · MIT</sub></p>

@@ -2,7 +2,7 @@
 // demo.cjs — run three rounds against this repo and watch the backlog rank + the registry self-grow.
 // Run: node examples/demo.cjs
 const path = require('path');
-const { runRound } = require('../lib/cadence.cjs');
+const { runRound } = require('../lib/megacycle.cjs');
 
 // Scan the repo root (one level up from examples/), with a low promote threshold so growth is visible.
 const dir = path.join(__dirname, '..');

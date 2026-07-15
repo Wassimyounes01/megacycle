@@ -1,12 +1,12 @@
 {
-  "name": "cadence",
+  "name": "megacycle",
   "version": "1.0.0",
   "description": "Point it at your project and it runs a fleet of cheap health scanners in parallel, predicts what to build next, and grows its own checklist over time.",
   "license": "MIT",
   "type": "commonjs",
   "scripts": {
-    "test": "node lib/cadence.cjs --dir=. --once >/dev/null && node examples/demo.cjs >/dev/null && echo ok",
-    "check": "node --check lib/cadence.cjs && node --check lib/cycles.cjs && node --check examples/demo.cjs && echo ok"
+    "test": "node lib/megacycle.cjs --dir=. --once >/dev/null && node examples/demo.cjs >/dev/null && echo ok",
+    "check": "node --check lib/megacycle.cjs && node --check lib/cycles.cjs && node --check examples/demo.cjs && echo ok"
   },
   "keywords": [
     "codebase-health",
@@ -23,6 +23,6 @@
   "dependencies": {},
   "devDependencies": {},
   "bin": {
-    "cadence": "lib/cadence.cjs"
+    "megacycle": "lib/megacycle.cjs"
   }
 }

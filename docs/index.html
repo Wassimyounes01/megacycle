@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CADENCE — Point it at your project and it runs a fleet of cheap health scanners in parallel, predicts what to build next, and grows its own checklist over time.</title>
+<title>Megacycle — Point it at your project and it runs a fleet of cheap health scanners in parallel, predicts what to build next, and grows its own checklist over time.</title>
 <style>
   :root{
     --ink:#0A0D12; --panel:#11151d; --panel-2:#151b25; --line:#1e2733;
@@ -65,7 +65,7 @@
 </head>
 <body>
 <header class="bar"><div class="wrap">
-  <div class="mark"><span class="dot"></span>CADENCE</div>
+  <div class="mark"><span class="dot"></span>Megacycle</div>
   <button id="themeToggle" aria-label="Toggle color theme">◐ theme</button>
 </div></header>
 
@@ -73,7 +73,7 @@
   <div class="eyebrow">SELF-GROWING IMPROVEMENT BACKLOG</div>
   <h1>Scan. Predict.<br><span class="under">Grow the checklist.</span></h1>
   <p class="lede">Point it at your project and it runs a fleet of cheap health scanners in parallel, predicts what to build next, and grows its own checklist over time.</p>
-  <p class="sub">CADENCE is a continuous self-improvement engine for a codebase. Each round it runs a fleet of tiny, $0, local scanners in parallel — test coverage, doc freshness, dependency drift, TODO/FIXME debt, untested files — each of which reads real on-disk state and PREDICTS the highest-leverage builds to do next. Predictions merge into a ranked, deduplicated backlog; anything that keeps recurring is PROMOTED into a new standing scanner, so the checklist grows itself. Scanners are just objects with scan() and predict(); bring your own, and plug in any LLM to enrich predictions. Runs once, N rounds, or forever.</p>
+  <p class="sub">Megacycle is a continuous self-improvement engine for a codebase. Each round it runs a fleet of tiny, $0, local scanners in parallel — test coverage, doc freshness, dependency drift, TODO/FIXME debt, untested files — each of which reads real on-disk state and PREDICTS the highest-leverage builds to do next. Predictions merge into a ranked, deduplicated backlog; anything that keeps recurring is PROMOTED into a new standing scanner, so the checklist grows itself. Scanners are just objects with scan() and predict(); bring your own, and plug in any LLM to enrich predictions. Runs once, N rounds, or forever.</p>
   <div class="cta">
     <a class="btn primary" href="#start">▸ Quickstart</a>
     <a class="btn" href="#">View on GitHub</a>
@@ -97,20 +97,20 @@
   <div class="shead"><div class="eyebrow">quickstart</div><h2>Up and running in a clone.</h2>
   <p>Every value comes from <code>.env</code>. Nothing here is tied to any account — bring your own.</p></div>
   <pre class="code"><span class="c"># 1. no install needed — pure Node builtins</span>
-node lib/cadence.cjs --dir=.                 # one round against the current project ($0, local)
+node lib/megacycle.cjs --dir=.                 # one round against the current project ($0, local)
 
 <span class="c"># 2. compound over several rounds (backlog + registry may grow)</span>
-node lib/cadence.cjs --dir=. --rounds=3
+node lib/megacycle.cjs --dir=. --rounds=3
 
 <span class="c"># 3. see the ranked backlog it built</span>
 node examples/demo.cjs
 
 <span class="c"># 4. run forever on an interval (great as a cron / service)</span>
-node lib/cadence.cjs --dir=. --loop --interval=900</pre>
+node lib/megacycle.cjs --dir=. --loop --interval=900</pre>
 </div></div></section>
 
 <footer><div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:12px">
-  <span>CADENCE · scan · predict · promote</span><span>MIT · bring your own keys · $0 to run</span>
+  <span>Megacycle · scan · predict · promote</span><span>MIT · bring your own keys · $0 to run</span>
 </div></footer>
 
 <script>

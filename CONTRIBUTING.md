@@ -1,6 +1,6 @@
-# Contributing to CADENCE
+# Contributing to Megacycle
 
-Thanks for your interest! CADENCE is MIT-licensed and built to be forked, extended, and
+Thanks for your interest! Megacycle is MIT-licensed and built to be forked, extended, and
 dropped into your own stack.
 
 ## Ground rules
