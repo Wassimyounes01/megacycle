@@ -1,0 +1,28 @@
+{
+  "name": "cadence",
+  "version": "1.0.0",
+  "description": "Point it at your project and it runs a fleet of cheap health scanners in parallel, predicts what to build next, and grows its own checklist over time.",
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node lib/cadence.cjs --dir=. --once >/dev/null && node examples/demo.cjs >/dev/null && echo ok",
+    "check": "node --check lib/cadence.cjs && node --check lib/cycles.cjs && node --check examples/demo.cjs && echo ok"
+  },
+  "keywords": [
+    "codebase-health",
+    "backlog",
+    "self-improvement",
+    "static-analysis",
+    "cron",
+    "self-growing",
+    "zero-dependencies"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "bin": {
+    "cadence": "lib/cadence.cjs"
+  }
+}
