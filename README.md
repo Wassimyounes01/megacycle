@@ -78,6 +78,14 @@ node lib/megacycle.cjs --dir=. --loop --interval=900
 
 ---
 
+## See it run
+
+<p align="center">
+  <img src="assets/product.svg" alt="Megacycle — product shot" width="100%">
+</p>
+
+---
+
 ## Repository layout
 
 ```
@@ -89,6 +97,19 @@ megacycle/
 │   └── demo.cjs            ← run a round against this repo, print the ranked backlog
 └── data/                   ← backlog.jsonl + dynamic-registry.json (gitignored, auto-created)
 ```
+
+---
+
+## Concepts
+
+| Concept | Meaning |
+|---|---|
+| **Cycle** | One health scanner bound to a real signal: scan(ctx) → { metrics, health } plus predict(ctx, scan) → suggested builds. |
+| **Super-loop** | Runs the whole cycle fleet in a bounded parallel pool each round and merges predictions into one ranked backlog. |
+| **Backlog** | Deduplicated suggested work, ranked by leverage × confidence × how often it keeps being predicted (seen). |
+| **Promotion** | A prediction seen N+ times stops being a suggestion and becomes a new standing cycle — the registry grows itself. |
+| **Dynamic cycle** | A promoted cycle minted at runtime; next round it scans like any built-in. |
+| **Context probes** | Cheap fs probes (files / grep / exists / ageHours) every scanner shares, so cycles stay one-screen small. |
 
 ---
 
